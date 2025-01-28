@@ -5,7 +5,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome'
 type CustomInputProps = {
     title: string
     value: string
-    placeholder: string
+    placeholder?: string
     handleChangeText: (text: string) => void
 }
 
@@ -62,7 +62,9 @@ const styles = StyleSheet.create({
     color: 'black-100',
     fontSize: 16,
     lineHeight: 24,
+    height: 56,
   }
+ 
 })
 
 export default CustomInput

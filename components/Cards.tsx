@@ -12,9 +12,9 @@ const Cards = ({stats, desc}:{stats: number, desc: string}) => {
     </View>
 </View> */}
 <View style={styles.card}>
-        <Text style={styles.text}>{stats}</Text>
-    <View className="flex-1 h-20 m-2 justify-center">
-        <Text className="font-semibold text-md text-center">{desc}</Text>
+    <Text style={styles.text}>{stats}</Text>
+    <View>
+        <Text style={styles.descText}>{desc}</Text>
     </View>
 </View>
 </>
@@ -25,17 +25,23 @@ const styles = StyleSheet.create({
     card: {
         width: 200,
         height: 140,
-        backgroundColor: 'orange',
+        backgroundColor: 'white',
         borderRadius: 20,
         margin: 10,
-        padding: 20,
-        flexDirection: 'row',
+        // flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center'
     },
     text: {
         fontWeight: 'bold',
-        fontSize: 40
+        fontSize: 60,
+        color: 'gray'
+    },
+    descText:{
+        fontWeight: 200,
+        fontSize: 15,
+        textAlign: 'center',
+        color: 'gray'
     }
 })
 

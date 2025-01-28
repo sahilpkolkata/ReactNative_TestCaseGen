@@ -13,26 +13,31 @@ const Login = () => {
 
   return (
         <LinearGradient
-                    colors={['#8b5cf6', '#d946ef']} // Violet to Fuchsia
+                    colors={['#da2fb5', '#f20c2b', '#f63939']}
                     start={{ x: 0, y: 0 }} // Top-left
                     end={{ x: 1, y: 1 }}   // Bottom-right
                     style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-
-          {/* <View className='w-80 h-60 shadow-lg p-4 justify-center bg-white rounded-lg'> */}
+            {/* <View className='mb-8'>
+              <Text className='text-black text-3xl font-bold '>Login</Text>
+            </View>           */}
+            {/* <View className='w-80 h-60 shadow-lg p-4 justify-center bg-white rounded-lg'> */}
           <View style={styles.loginContainer}>
+          <Text className='text-black text-3xl font-bold mb-8 text-center'>Login</Text>
             <CustomInput 
                 title='Email' 
                 value={loginDetails.email} 
-                placeholder='email' 
+                
                 handleChangeText={(text) => setLoginDetails({...loginDetails, email: text})}/>
             <CustomInput
                 title='Password'
                 value={loginDetails.password}
-                placeholder='password'
+                
                 handleChangeText={(text) => setLoginDetails({...loginDetails, password: text})}/>
             
             <TouchableOpacity style={styles.loginButton}
-                              onPress={() => {router.push('/')}}><Text>Login</Text></TouchableOpacity>
+                              onPress={() => {router.push('/')}}>
+                                <Text style={{fontSize: 18, color: 'white'}}>Login</Text>
+            </TouchableOpacity>
           </View>
 
         </LinearGradient>
@@ -42,19 +47,20 @@ const Login = () => {
 
 const styles = StyleSheet.create({
   loginContainer : {
-    width: 400,
-    height: 280,
+    width: 560,
+    height: 400,
     boxShadow: '0 4px 6px 0 rgba(0, 0, 0, 0.1)',
     padding: 16,
     justifyContent: 'center',
     backgroundColor: 'white',
-    borderRadius: 8
+    borderRadius: 8,
+    zIndex: 0
   },
   loginButton:{
-    marginTop: 40,
-    backgroundColor: 'violet-400',
-    borderRadius: 4,
-    padding: 8,
+    marginTop: 20,
+    backgroundColor: '#8f1eeb',
+    borderRadius: 24,
+    padding: 16,
     justifyContent: 'center',
     alignItems: 'center'
   }
