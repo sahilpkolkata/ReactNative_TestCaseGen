@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
 import React, {useState} from 'react'
 import FontAwesome from '@expo/vector-icons/FontAwesome'
 
@@ -13,14 +13,12 @@ const CustomInput = ({title, value, placeholder, handleChangeText}:CustomInputPr
   const [showPassword, setshowPassword] = useState(false)
   return (
     <>
-      <Text  className='text-base text-gray-100'>
-        Login
+      <Text style={styles.title}>
+        {title}
       </Text> 
-      <View className='w-full h-16 px-4
-             bg-black-100 border-2 border-black-200
-             rounded-2xl flex-row items-center focus:border-secondary-200'> 
+      <View style={styles.inputContainer}> 
         <TextInput 
-         className='flex-1 text-red text-base'
+         style={styles.inputText}
          value={value}
          placeholder={placeholder}
          placeholderTextColor='#7b7b8b'
@@ -40,5 +38,31 @@ const CustomInput = ({title, value, placeholder, handleChangeText}:CustomInputPr
      
   )
 }
+
+const styles = StyleSheet.create({
+  title:{
+    fontSize: 16,
+    lineHeight: 24,
+  },
+  inputContainer: {
+    width: '100%',
+    marginTop: 4,
+    marginBottom: 4,
+    height: 56,
+    padding: 16,
+    backgroundColor: 'black-100',
+    borderRadius: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: 'black-200',
+  },
+  inputText: {
+    flex: 1,
+    color: 'black-100',
+    fontSize: 16,
+    lineHeight: 24,
+  }
+})
 
 export default CustomInput

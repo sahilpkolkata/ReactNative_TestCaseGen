@@ -17,7 +17,7 @@ const HomeScreen = () => {
             end={{ x: 1, y: 1 }}   // Bottom-right
             style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
-                <Text className='text-red-400 mb-12'>Welcome to Home</Text>
+                <Text className='text-blue-400 mb-12'>Welcome to Home</Text>
                 <Link href={'/sign-in'}>Login</Link>    
             <View className='w-[35rem] h-20 m-2 shadow-lg p-6 flex-row justify-between bg-white rounded-2xl'>
                 <Text className='text-center'>Upload</Text>
