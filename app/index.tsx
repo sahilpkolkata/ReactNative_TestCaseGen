@@ -6,6 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { BottomTabBar } from '@react-navigation/bottom-tabs'
 import Cards from '@/components/Cards'
+import UploadComponent from '@/components/UploadComponent'
 
 
 const HomeScreen = () => {
@@ -20,15 +21,10 @@ const HomeScreen = () => {
             <Text className='text-white mb-8 text-3xl items-right font-bold'>
                 Good Morning Sahil
             </Text>
-                   
-            <View className='w-[35rem] h-20 m-2 shadow-lg p-6 flex-row justify-between bg-white rounded-2xl'>
-                <Text className='text-center'>Upload</Text>
-                <FontAwesome className='items-right' 
-                            onPress={() => router.push('/post-upload')}
-                            name='upload' size={24} 
-                            color='purple' 
-                            style={{ opacity: 0.4 }} />
-            </View>
+             
+                <UploadComponent />
+                  
+            
             <View className='m-12 flex-row justify-evenly'>
                 <Cards stats={2} desc='Chats initiated by you'/>
                 <Cards stats={10} desc='Test cases generated'/>

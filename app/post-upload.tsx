@@ -14,25 +14,31 @@ const PostUpload = () => {
             end={{ x: 1, y: 1 }}   // Bottom-right
             style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
               
-           
-          <View className='w-[60rem] h-[20rem] shadow-lg p-4 justify-center items-center bg-white rounded-lg'>
-            <Text className='text-gray top-0 mt-8 text-3xl items-right font-bold absolute'>
+           <View className="w-full h-[300px] justify-center items-center">
+           <View className="w-[60%] h-full bg-white/50 rounded-lg shadow-lg">
+           <View className="w-full h-full p-4 justify-center items-center">
+
+           <Text className='text-gray top-0 mt-8 text-3xl items-right font-bold absolute'>
               2 files have been successfully uploaded
             </Text> 
             
             <View className='m-8 flex-row justify-evenly'>
-              <View className='w-[24rem] h-8 m-2 shadow-lg p-6 justify-center items-center bg-white rounded-2xl'>
-                <Text className='text-center'>File 1</Text>
+                <View className='w-[20rem] m-2 shadow-lg p-2 justify-center items-center bg-white rounded-xl'>
+                  <Text className='text-center'>File 1</Text>
+                </View>
+                <View className='w-[20rem] m-2 shadow-lg p-2 justify-center items-center bg-white rounded-xl'>
+                  <Text className='text-center'>File 2</Text>
+                </View>
               </View>
-              <View className='w-[24rem] h-8 m-2 shadow-lg p-6 justify-center items-center bg-white rounded-2xl'>
-                <Text className='text-center'>File 2</Text>
-              </View>
-            </View>
             <TouchableOpacity className=' bg-[#8f1eeb] w-96 rounded-2xl p-4 justify-center items-center'
                                           onPress={() => {router.push('/testcase-page')}}>
                                             <Text style={{fontSize: 12, color: 'white'}}>GENERATED TEST CASES</Text>
             </TouchableOpacity>
+           </View>
+            
           </View>
+           </View>
+          
             
         </LinearGradient>
     </SafeAreaView>            
