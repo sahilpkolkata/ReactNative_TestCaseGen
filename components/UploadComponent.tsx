@@ -12,6 +12,7 @@ const UploadComponent = () => {
       type: 'application/pdf',
       multiple: true
     });
+    console.log(result.assets)
 
     if (!result.canceled) {
       setFiles(result.assets);
@@ -31,6 +32,11 @@ const UploadComponent = () => {
     }
   };
 
+  const deleteUploadedFile = (f:Object)=>{
+    const updatedFiles = files.filter(file => file.name !== f.name)
+    setFiles(updatedFiles)
+  }
+
   return (
     <View style={styles.container}>
       {/* Centered Upload Text */}
@@ -47,7 +53,7 @@ const UploadComponent = () => {
         {files?.map((f, i) => (
           <View style={styles.fileContainer} key={i}>
             <Text numberOfLines={1} style={styles.fileName}>{f.name}</Text>
-            <FontAwesome name="trash" size={20} color="red" />
+            <FontAwesome onPress={()=>deleteUploadedFile(f)} name="trash" size={20} color="red" />
           </View>
         ))}
       </ScrollView>
