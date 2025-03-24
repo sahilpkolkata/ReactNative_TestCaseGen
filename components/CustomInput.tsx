@@ -11,6 +11,7 @@ type CustomInputProps = {
 
 const CustomInput = ({title, value, placeholder, handleChangeText}:CustomInputProps) => {
   const [showPassword, setshowPassword] = useState(false)
+  const [isFocused, setisFocused] = useState(false)
   return (
     <>
       <Text style={styles.title}>
@@ -18,12 +19,15 @@ const CustomInput = ({title, value, placeholder, handleChangeText}:CustomInputPr
       </Text> 
       <View style={styles.inputContainer}> 
         <TextInput 
-         style={styles.inputText}
+         style={[styles.inputText, , isFocused && styles.inputHover]}
+         onFocus={()=>{setisFocused(true)}}
+         onBlur={()=>setisFocused(false)}
          value={value}
          placeholder={placeholder}
          placeholderTextColor='#7b7b8b'
          onChangeText={handleChangeText}
          secureTextEntry={title ==='Password' && !showPassword}
+         underlineColorAndroid="transparent"
          />
       {title === 'Password' && (
         <TouchableOpacity onPress={()=> setshowPassword(!showPassword)}>
@@ -50,19 +54,24 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     height: 56,
     padding: 16,
-    backgroundColor: 'black-100',
+    backgroundColor: '#F2EFE7',
     borderRadius: 16,
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 2,
-    borderColor: 'black-200',
+    borderColor: 'transparent',
   },
   inputText: {
     flex: 1,
-    color: 'black-100',
+    color: 'black',
     fontSize: 16,
     lineHeight: 24,
     height: 56,
+    borderWidth: 0,
+    // outlineStyle: "none"
+  },
+  inputHover: {
+    borderColor: 'transparent'
   }
  
 })

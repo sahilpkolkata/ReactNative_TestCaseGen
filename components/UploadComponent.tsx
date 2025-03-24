@@ -1,11 +1,29 @@
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, useWindowDimensions, TextInput } from 'react-native';
 import React, { useState } from 'react';
 import { FontAwesome } from '@expo/vector-icons';
-import { router } from 'expo-router';
+import { router, Redirect } from 'expo-router';
+
 import * as DocumentPicker from 'expo-document-picker';
 
+
+
 const UploadComponent = () => {
+  const {width, height} = useWindowDimensions()
   const [files, setFiles] = useState([]);
+
+  const handleUpload = () => {
+    try{
+      if (files.length > 0) {
+        router.navigate({
+          pathname: "/post-upload",
+          params: {files: files.map(f=> f.name)}
+        });
+      }
+    }catch(error){
+        alert('Please upload a file');
+      }
+  };
+
 
   const pickDocument = async () => {
     let result = await DocumentPicker.getDocumentAsync({
@@ -16,21 +34,13 @@ const UploadComponent = () => {
 
     if (!result.canceled) {
       setFiles(result.assets);
+      
     } else {
       alert('Error: No file selected');
     }
   };
 
-  const handleUpload = () => {
-    if (files.length > 0) {
-      router.push({
-        pathname: '/post-upload',
-        params: { fileCount: files.length, files: files.map(f => f.name) }
-      });
-    } else {
-      alert('Please upload a file');
-    }
-  };
+  
 
   const deleteUploadedFile = (f:Object)=>{
     const updatedFiles = files.filter(file => file.name !== f.name)
@@ -38,7 +48,7 @@ const UploadComponent = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container,{width: width*0.8, maxWidth:550}]}>
       {/* Centered Upload Text */}
       {files.length === 0 && (
         <View style={styles.uploadTextWrapper}>
@@ -68,24 +78,26 @@ const UploadComponent = () => {
           color="purple"
         />
       )}
+      <TextInput numberOfLines={3} style={{height:30}}/>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    width: 550, // Equivalent to '35rem'
     height: 100,
     margin: 8,
     backgroundColor: 'white',
     borderRadius: 16,
-    padding: 10,
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    shadowOffset: { width: 0, height: 2 },
+    padding: 10, 
+    // boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.1)",
+    // shadowColor: '#000',
+    // shadowOpacity: 0.1,
+    // shadowRadius: 5,
+    // shadowOffset: { width: 0, height: 2 },
     position: 'relative',
     justifyContent: 'center', // Ensures centering when empty
+    
   },
   uploadTextWrapper: {
     flex: 1, 
