@@ -10,7 +10,7 @@ const LandingScreen = () => {
     
       <LinearGradient
         // Background Linear Gradient
-        colors={['#9e31ee', '#9612f0','#cfc0db']}
+        colors={['#8d3de9', '#c284ed','#edb9b9']}
         style={styles.mainContainer}
       >
         
