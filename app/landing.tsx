@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         width:'100%',
         height: '20%',
         padding:20,
-        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+        backgroundColor: 'rgba(255, 255, 255, 0.2)',
         boxShadow: '0 4px 6px 0 rgba(0, 0, 0, 0.1)',
         position:'relative'
     },

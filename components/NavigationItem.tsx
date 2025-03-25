@@ -5,7 +5,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 const NavigationItem = ({name}:{name:string}) => {
   return (
     <View style={name==='Login' ? styles.loginButton : styles.itemContainer}>
-      <Text style={styles.itemText}>{name}</Text>
+      <Text style={[styles.itemText, name==='Login' && {color: '#edb9b9'}]}>{name}</Text>
       {
         (name !== 'Home' && name !== 'Login') && 
         <AntDesign style={{marginTop:1}} name="down" size={16} color="black" />
@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
     itemContainer:{
         paddingVertical: 10,
         paddingHorizontal: 20,
-        boxShadow: '0 4px 6px 0 #b764f4',
+        boxShadow: '0 4px 6px 0 rgba(237,185,185,1)',
+        backgroundColor: 'rgba(255, 255, 255, 0.3)',
         borderRadius: 10,
         marginRight: 20,
         position: 'relative',
@@ -40,8 +41,10 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 20,
         boxShadow: '0 4px 6px 0 #b764f4',
+        backgroundColor: 'rgba(85,9,173,1)',
         borderRadius: 10,
         marginRight: 20,
-        marginLeft: 'auto'
+        marginLeft: 'auto',
+       // backgroundColor: '#5509ad',
     }
 })
