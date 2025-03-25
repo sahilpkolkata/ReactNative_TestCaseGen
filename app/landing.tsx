@@ -1,7 +1,9 @@
-import { ScrollView, StyleSheet, Text, View, Image } from 'react-native'
+import { ScrollView, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { LinearGradient } from 'expo-linear-gradient'
 import Entypo from '@expo/vector-icons/Entypo';
+import NavigationItem from '@/components/NavigationItem';
+import Feather from '@expo/vector-icons/Feather';
 
 const LandingScreen = () => {
   return (
@@ -19,9 +21,11 @@ const LandingScreen = () => {
                     <Text style={{fontSize:30, fontWeight:500}} >nexus</Text>
                 </View>
                
-                <Text>Home</Text>
-                <Text>Products</Text>
-                <Text>Sign In</Text>
+                <NavigationItem name="Products"/>
+                <NavigationItem name="Use cases"/>
+                <NavigationItem name="Login"/>
+                
+                
             </View>
             <View style={{marginVertical: 30, display:'flex', alignItems:'center'}}>
                 <Text style={{fontSize:70, textAlign:'center', fontWeight:500}}>
@@ -34,11 +38,17 @@ const LandingScreen = () => {
             <LinearGradient colors={['#ae61e7', '#12f0d9', '#dbc0c0']} style={styles.mainContent}>
                 <Text>Hello</Text>
             </LinearGradient>
+            <TouchableOpacity style={styles.getStart}>
+                <Text style={{fontSize:15, textAlign:'center', fontWeight:700}}>
+                    Get Started
+                </Text>
+                <Feather name="arrow-up-right" size={24} color="black" />
+            </TouchableOpacity>
             <View style={{marginVertical: 30, display:'flex', alignItems:'center'}}>
                 <Text style={{fontSize:50, textAlign:'center', fontWeight:700}}>
                 Built for modern enterprises to drive growth
                 </Text>
-                <Text style={{fontSize:20, textAlign:'center', fontWeight:300}}>
+                <Text style={{fontSize:20, textAlign:'center', fontWeight:300, padding:20}}>
                 Deliver enterprise services in the flow of work to where your employees are. Atom, the
                 <br/> universal AI Agent, is available on Slack, Teams, email, browser and business apps.
                 </Text>
@@ -103,5 +113,18 @@ const styles = StyleSheet.create({
     logo:{
         margin:10,
         
+    },
+    getStart:{
+        display:'flex',
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'center',
+        margin:'auto',
+        marginVertical: 30,
+        paddingHorizontal: 15,
+        paddingVertical: 15,
+        backgroundColor: '#e93d85',
+        width:200,
+        borderRadius:10
     }
 })
